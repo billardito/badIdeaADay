@@ -1,0 +1,29 @@
+<%= form_for(@post_idea) do |f| %>
+  <% if @post_idea.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post_idea.errors.count, "error") %> prohibited this post_idea from being saved:</h2>
+
+      <ul>
+      <% @post_idea.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :idea %><br />
+    <%= f.text_field :idea %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

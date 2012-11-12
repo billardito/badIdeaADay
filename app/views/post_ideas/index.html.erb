@@ -1,0 +1,27 @@
+<h1>Listing post_ideas</h1>
+
+<table>
+  <tr>
+    <th>Idea</th>
+    <th>Date</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @post_ideas.each do |post_idea| %>
+  <tr>
+    <td><%= post_idea.idea %></td>
+    <td><%= post_idea.date %></td>
+    <td><%= post_idea.content %></td>
+    <td><%= link_to 'Show', post_idea %></td>
+    <td><%= link_to 'Edit', edit_post_idea_path(post_idea) %></td>
+    <td><%= link_to 'Destroy', post_idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post idea', new_post_idea_path %>
